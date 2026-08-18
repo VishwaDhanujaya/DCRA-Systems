@@ -1,0 +1,28 @@
+{
+  "name": "priesthood-certification-system",
+  "version": "1.0.0",
+  "description": "Online Bungalow Booking System - Department of Christian Religious Affairs",
+  "main": "index.php",
+  "scripts": {
+    "build": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify",
+    "dev": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch",
+    "build:css": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --minify",
+    "watch:css": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/style.css --watch"
+  },
+  "keywords": [
+    "php",
+    "tailwindcss",
+    "priesthood",
+    "certification",
+    "government-portal"
+  ],
+  "author": "Department of Christian Religious Affairs",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}
+

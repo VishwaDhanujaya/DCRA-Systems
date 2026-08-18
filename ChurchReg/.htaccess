@@ -1,0 +1,44 @@
+# Pretty URLs Rewrite Configuration
+# Department of Christian Religious Affairs - Church Renovation System
+
+RewriteEngine On
+
+# Exclude existing physical files and directories from rewriting
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Redirect direct .php requests to extensionless pretty URLs (prevent loops via THE_REQUEST check)
+RewriteCond %{THE_REQUEST} \s/+[^\s?]+\.php[\s?] [NC]
+RewriteCond %{THE_REQUEST} !/index\.php [NC]
+RewriteRule ^([^\.]+)\.php$ $1 [R=301,L]
+
+# Redirect direct index.php requests to clean dashboard route
+RewriteCond %{THE_REQUEST} \s/+[^\s?]+/index\.php[\s?] [NC]
+RewriteRule ^index\.php$ dashboard [R=301,L]
+
+# Clean Dashboard URL
+RewriteRule ^dashboard/?$ index.php [L]
+
+# Clean New Application sub-route
+RewriteRule ^applications/new/?$ new_application.php [L]
+
+# Clean View Application route (e.g. applications/VLS-2634)
+RewriteRule ^applications/([A-Za-z0-9\-]+)/?$ view_application.php?id=$1 [L,QSA]
+
+# Clean Pending Review URL
+RewriteRule ^pending-review/?$ pending_review.php [L]
+
+# Clean New Certificate route
+RewriteRule ^certificates/new/?$ new_certificate.php [L]
+
+# Map any URL without extension to its matching PHP file if it exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
+# Fallback to 404 page for unmatched routes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ 404.php [L]

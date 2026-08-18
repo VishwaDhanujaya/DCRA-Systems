@@ -1,0 +1,14 @@
+# Pretty URLs Rewrite Configuration for Portal Root
+# Department of Christian Religious Affairs
+
+RewriteEngine On
+
+# Exclude existing physical files and directories from rewriting
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback to 404 page for unmatched routes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ 404.php [L]

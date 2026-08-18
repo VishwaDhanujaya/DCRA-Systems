@@ -1,0 +1,39 @@
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# PHP / Composer (if applicable)
+vendor/
+.phpunit.result.cache
+
+# Archives and Backups
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+
+# Environment and Credentials
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Database dumps and Logs
+*.sql
+*.log
